@@ -21,9 +21,21 @@
 		23B28C631F753BF5001F0A1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B28C621F753BF5001F0A1D /* User.swift */; };
 		C72E70031F76EB1F00720507 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72E70011F76EB1F00720507 /* StatusTableViewCell.swift */; };
 		C72E70041F76EB1F00720507 /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72E70021F76EB1F00720507 /* StatusTableViewCell.xib */; };
-		C72E70061F76F3F200720507 /* UserDopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72E70051F76F3F200720507 /* UserDopInfo.swift */; };
 		C72E70091F76F73800720507 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72E70071F76F73800720507 /* BasicInfoTableViewCell.swift */; };
 		C72E700A1F76F73800720507 /* BasicInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72E70081F76F73800720507 /* BasicInfoTableViewCell.xib */; };
+		C72F02F61F799091004ABB95 /* InfoViewModelItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F02F51F799091004ABB95 /* InfoViewModelItemType.swift */; };
+		C72F02F81F7990D4004ABB95 /* InfoViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F02F71F7990D4004ABB95 /* InfoViewModelItem.swift */; };
+		C72F02FA1F7990E5004ABB95 /* InfoViewModelStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F02F91F7990E5004ABB95 /* InfoViewModelStatusItem.swift */; };
+		C72F02FE1F79913D004ABB95 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F02FD1F79913D004ABB95 /* BasicInfo.swift */; };
+		C72F03001F799158004ABB95 /* InfoViewModelBasicInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F02FF1F799158004ABB95 /* InfoViewModelBasicInfoItem.swift */; };
+		C72F03021F79916A004ABB95 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F03011F79916A004ABB95 /* Contacts.swift */; };
+		C72F03041F79917F004ABB95 /* InfoVIewModelContactsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F03031F79917E004ABB95 /* InfoVIewModelContactsItem.swift */; };
+		C72F03061F7991AF004ABB95 /* InfoViewModelCarierItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F03051F7991AF004ABB95 /* InfoViewModelCarierItem.swift */; };
+		C72F03081F7991BD004ABB95 /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F03071F7991BD004ABB95 /* Education.swift */; };
+		C72F030A1F7991D4004ABB95 /* InfoViewModelEducationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F03091F7991D4004ABB95 /* InfoViewModelEducationItem.swift */; };
+		C72F030C1F7991E6004ABB95 /* InfoViewModelPresentsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F030B1F7991E6004ABB95 /* InfoViewModelPresentsItem.swift */; };
+		C72F030E1F7991F4004ABB95 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F030D1F7991F4004ABB95 /* Files.swift */; };
+		C72F03101F79920A004ABB95 /* InfoViewModelFilesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F030F1F79920A004ABB95 /* InfoViewModelFilesItem.swift */; };
 		C7455C801F77EF0D00589403 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7455C7E1F77EF0D00589403 /* ContactsTableViewCell.swift */; };
 		C7455C811F77EF0D00589403 /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7455C7F1F77EF0D00589403 /* ContactsTableViewCell.xib */; };
 		C7455C841F77EF2100589403 /* CarierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7455C821F77EF2100589403 /* CarierTableViewCell.swift */; };
@@ -73,11 +85,23 @@
 		23B28C5E1F75202F001F0A1D /* FollowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		23B28C601F753813001F0A1D /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		23B28C621F753BF5001F0A1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C72E70011F76EB1F00720507 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusTableViewCell.swift; path = CustomCells/StatusTableViewCell.swift; sourceTree = "<group>"; };
-		C72E70021F76EB1F00720507 /* StatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatusTableViewCell.xib; path = CustomCells/StatusTableViewCell.xib; sourceTree = "<group>"; };
-		C72E70051F76F3F200720507 /* UserDopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDopInfo.swift; sourceTree = "<group>"; };
-		C72E70071F76F73800720507 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BasicInfoTableViewCell.swift; path = CustomCells/BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
-		C72E70081F76F73800720507 /* BasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BasicInfoTableViewCell.xib; path = CustomCells/BasicInfoTableViewCell.xib; sourceTree = "<group>"; };
+		C72E70011F76EB1F00720507 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		C72E70021F76EB1F00720507 /* StatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
+		C72E70071F76F73800720507 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
+		C72E70081F76F73800720507 /* BasicInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicInfoTableViewCell.xib; sourceTree = "<group>"; };
+		C72F02F51F799091004ABB95 /* InfoViewModelItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelItemType.swift; sourceTree = "<group>"; };
+		C72F02F71F7990D4004ABB95 /* InfoViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelItem.swift; sourceTree = "<group>"; };
+		C72F02F91F7990E5004ABB95 /* InfoViewModelStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelStatusItem.swift; sourceTree = "<group>"; };
+		C72F02FD1F79913D004ABB95 /* BasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
+		C72F02FF1F799158004ABB95 /* InfoViewModelBasicInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelBasicInfoItem.swift; sourceTree = "<group>"; };
+		C72F03011F79916A004ABB95 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		C72F03031F79917E004ABB95 /* InfoVIewModelContactsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVIewModelContactsItem.swift; sourceTree = "<group>"; };
+		C72F03051F7991AF004ABB95 /* InfoViewModelCarierItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelCarierItem.swift; sourceTree = "<group>"; };
+		C72F03071F7991BD004ABB95 /* Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
+		C72F03091F7991D4004ABB95 /* InfoViewModelEducationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelEducationItem.swift; sourceTree = "<group>"; };
+		C72F030B1F7991E6004ABB95 /* InfoViewModelPresentsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelPresentsItem.swift; sourceTree = "<group>"; };
+		C72F030D1F7991F4004ABB95 /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
+		C72F030F1F79920A004ABB95 /* InfoViewModelFilesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModelFilesItem.swift; sourceTree = "<group>"; };
 		C7455C7E1F77EF0D00589403 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		C7455C7F1F77EF0D00589403 /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsTableViewCell.xib; sourceTree = "<group>"; };
 		C7455C821F77EF2100589403 /* CarierTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarierTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,30 +163,12 @@
 		23B28C2F1F750D78001F0A1D /* Informantion&Followers */ = {
 			isa = PBXGroup;
 			children = (
+				C72F02F41F798FF2004ABB95 /* Models */,
+				C72F02F31F798FD1004ABB95 /* ViewControllers */,
 				23B28C301F750D78001F0A1D /* AppDelegate.swift */,
-				C7F7398D1F75A167003CEABF /* OwnInfoTableViewController.swift */,
-				C7455C8A1F77F01F00589403 /* PresentsTableViewCell.swift */,
-				C7455C8B1F77F01F00589403 /* PresentsTableViewCell.xib */,
-				C7455C8E1F77F03100589403 /* FilesTableViewCell.swift */,
-				C7455C8F1F77F03100589403 /* FilesTableViewCell.xib */,
-				C7455C861F77F00A00589403 /* EducationTableViewCell.swift */,
-				C7455C871F77F00A00589403 /* EducationTableViewCell.xib */,
-				C7455C821F77EF2100589403 /* CarierTableViewCell.swift */,
-				C7455C831F77EF2100589403 /* CarierTableViewCell.xib */,
-				C7455C7E1F77EF0D00589403 /* ContactsTableViewCell.swift */,
-				C7455C7F1F77EF0D00589403 /* ContactsTableViewCell.xib */,
+				C72F02F21F798EA9004ABB95 /* CustomCells */,
 				23B28C341F750D78001F0A1D /* Main.storyboard */,
-				C72E70011F76EB1F00720507 /* StatusTableViewCell.swift */,
-				C72E70021F76EB1F00720507 /* StatusTableViewCell.xib */,
-				C72E70071F76F73800720507 /* BasicInfoTableViewCell.swift */,
-				C72E70081F76F73800720507 /* BasicInfoTableViewCell.xib */,
-				2394A6001F75707E00351DCE /* NewViewController.swift */,
 				23B28C601F753813001F0A1D /* UserInfo.swift */,
-				23B28C621F753BF5001F0A1D /* User.swift */,
-				C72E70051F76F3F200720507 /* UserDopInfo.swift */,
-				236FF4B11F7555D10049AB93 /* FollowerTableViewCell.swift */,
-				236FF4B21F7555D10049AB93 /* FollowerTableViewCell.xib */,
-				23B28C5E1F75202F001F0A1D /* FollowersTableViewController.swift */,
 				23B28C371F750D79001F0A1D /* Assets.xcassets */,
 				23B28C391F750D79001F0A1D /* LaunchScreen.storyboard */,
 				23B28C3C1F750D79001F0A1D /* Info.plist */,
@@ -186,6 +192,69 @@
 				23B28C521F750D79001F0A1D /* Info.plist */,
 			);
 			path = "Informantion&FollowersUITests";
+			sourceTree = "<group>";
+		};
+		C72F02F21F798EA9004ABB95 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				C7455C8A1F77F01F00589403 /* PresentsTableViewCell.swift */,
+				C7455C8E1F77F03100589403 /* FilesTableViewCell.swift */,
+				C7455C8F1F77F03100589403 /* FilesTableViewCell.xib */,
+				C7455C861F77F00A00589403 /* EducationTableViewCell.swift */,
+				C7455C871F77F00A00589403 /* EducationTableViewCell.xib */,
+				C7455C821F77EF2100589403 /* CarierTableViewCell.swift */,
+				C7455C831F77EF2100589403 /* CarierTableViewCell.xib */,
+				C7455C7E1F77EF0D00589403 /* ContactsTableViewCell.swift */,
+				C7455C7F1F77EF0D00589403 /* ContactsTableViewCell.xib */,
+				C7455C8B1F77F01F00589403 /* PresentsTableViewCell.xib */,
+				C72E70021F76EB1F00720507 /* StatusTableViewCell.xib */,
+				C72E70011F76EB1F00720507 /* StatusTableViewCell.swift */,
+				C72E70071F76F73800720507 /* BasicInfoTableViewCell.swift */,
+				C72E70081F76F73800720507 /* BasicInfoTableViewCell.xib */,
+				236FF4B11F7555D10049AB93 /* FollowerTableViewCell.swift */,
+				236FF4B21F7555D10049AB93 /* FollowerTableViewCell.xib */,
+			);
+			name = CustomCells;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C72F02F31F798FD1004ABB95 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F7398D1F75A167003CEABF /* OwnInfoTableViewController.swift */,
+				2394A6001F75707E00351DCE /* NewViewController.swift */,
+				23B28C5E1F75202F001F0A1D /* FollowersTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C72F02F41F798FF2004ABB95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C72F02FC1F799121004ABB95 /* ModelForViewModelItem */,
+				23B28C621F753BF5001F0A1D /* User.swift */,
+				C72F03051F7991AF004ABB95 /* InfoViewModelCarierItem.swift */,
+				C72F030F1F79920A004ABB95 /* InfoViewModelFilesItem.swift */,
+				C72F02F51F799091004ABB95 /* InfoViewModelItemType.swift */,
+				C72F02F71F7990D4004ABB95 /* InfoViewModelItem.swift */,
+				C72F02F91F7990E5004ABB95 /* InfoViewModelStatusItem.swift */,
+				C72F02FF1F799158004ABB95 /* InfoViewModelBasicInfoItem.swift */,
+				C72F03031F79917E004ABB95 /* InfoVIewModelContactsItem.swift */,
+				C72F03091F7991D4004ABB95 /* InfoViewModelEducationItem.swift */,
+				C72F030B1F7991E6004ABB95 /* InfoViewModelPresentsItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C72F02FC1F799121004ABB95 /* ModelForViewModelItem */ = {
+			isa = PBXGroup;
+			children = (
+				C72F02FD1F79913D004ABB95 /* BasicInfo.swift */,
+				C72F03011F79916A004ABB95 /* Contacts.swift */,
+				C72F03071F7991BD004ABB95 /* Education.swift */,
+				C72F030D1F7991F4004ABB95 /* Files.swift */,
+			);
+			path = ModelForViewModelItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,20 +400,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7455C801F77EF0D00589403 /* ContactsTableViewCell.swift in Sources */,
-				C72E70061F76F3F200720507 /* UserDopInfo.swift in Sources */,
 				23B28C611F753814001F0A1D /* UserInfo.swift in Sources */,
 				2394A6011F75707E00351DCE /* NewViewController.swift in Sources */,
 				C7455C881F77F00A00589403 /* EducationTableViewCell.swift in Sources */,
 				23B28C311F750D78001F0A1D /* AppDelegate.swift in Sources */,
 				C72E70091F76F73800720507 /* BasicInfoTableViewCell.swift in Sources */,
 				C7455C8C1F77F01F00589403 /* PresentsTableViewCell.swift in Sources */,
+				C72F02FE1F79913D004ABB95 /* BasicInfo.swift in Sources */,
 				C72E70031F76EB1F00720507 /* StatusTableViewCell.swift in Sources */,
 				C7455C901F77F03100589403 /* FilesTableViewCell.swift in Sources */,
 				23B28C631F753BF5001F0A1D /* User.swift in Sources */,
+				C72F03001F799158004ABB95 /* InfoViewModelBasicInfoItem.swift in Sources */,
+				C72F03101F79920A004ABB95 /* InfoViewModelFilesItem.swift in Sources */,
+				C72F02FA1F7990E5004ABB95 /* InfoViewModelStatusItem.swift in Sources */,
+				C72F03081F7991BD004ABB95 /* Education.swift in Sources */,
 				23B28C5F1F75202F001F0A1D /* FollowersTableViewController.swift in Sources */,
+				C72F030A1F7991D4004ABB95 /* InfoViewModelEducationItem.swift in Sources */,
+				C72F030C1F7991E6004ABB95 /* InfoViewModelPresentsItem.swift in Sources */,
+				C72F03061F7991AF004ABB95 /* InfoViewModelCarierItem.swift in Sources */,
 				C7455C841F77EF2100589403 /* CarierTableViewCell.swift in Sources */,
+				C72F030E1F7991F4004ABB95 /* Files.swift in Sources */,
+				C72F03041F79917F004ABB95 /* InfoVIewModelContactsItem.swift in Sources */,
+				C72F02F81F7990D4004ABB95 /* InfoViewModelItem.swift in Sources */,
 				C7F7398E1F75A167003CEABF /* OwnInfoTableViewController.swift in Sources */,
 				236FF4B31F7555D10049AB93 /* FollowerTableViewCell.swift in Sources */,
+				C72F02F61F799091004ABB95 /* InfoViewModelItemType.swift in Sources */,
+				C72F03021F79916A004ABB95 /* Contacts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

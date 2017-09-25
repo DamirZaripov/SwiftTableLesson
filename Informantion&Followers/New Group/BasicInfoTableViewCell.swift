@@ -13,10 +13,10 @@ class BasicInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var upperLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
-    func prepateCell(with basicInfo: BasicInfo) {
-        upperLabel.text = basicInfo.title
+    func prepateCell(with basicInfoModel: BasicInfo) {
+        upperLabel.text = basicInfoModel.title
         upperLabel.sizeToFit()
-        infoLabel.text = basicInfo.info
+        infoLabel.text = basicInfoModel.info
         infoLabel.sizeToFit()
     }
     

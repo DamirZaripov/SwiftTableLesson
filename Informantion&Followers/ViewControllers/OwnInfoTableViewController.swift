@@ -8,147 +8,6 @@
 
 import UIKit
 
-enum InfoViewModelItemType {
-    case status
-    case basicInfo
-    case contacts
-    case carier
-    case education
-    case presents
-    case files
-}
-
-protocol InfoViewModelItem {
-    var type: InfoViewModelItemType {get}
-    var sectionType: String {get}
-    var rowCount: Int {get}
-}
-
-struct InfoViewModelStatusItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .status
-    }
-    var sectionType: String{
-        return ""
-    }
-    var rowCount: Int {
-        return 1
-    }
-    var status: String
-}
-
-struct BasicInfo {
-    var title: String
-    var info: String
-}
-
-struct InfoViewModelBasicInfoItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .basicInfo
-    }
-    var sectionType: String{
-        return ""
-    }
-    
-    var basicInfo: [BasicInfo]
-    
-    var rowCount: Int{
-        return basicInfo.count
-    }
-    
-}
-
-struct Contacts {
-    var image: UIImage
-    var contact: String
-}
-
-struct InfoVIewModelContactsItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .contacts
-    }
-    var sectionType: String{
-        return "Контакты"
-    }
-    var contacts: [Contacts]
-    var rowCount: Int {
-        return contacts.count
-    }
-}
-
-struct InfoViewModelCarierItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .carier
-    }
-    
-    var sectionType: String {
-        return "Карьера"
-    }
-    
-    var rowCount: Int {
-        return 1
-    }
-    
-    var company: String
-    var locationAndPeriod: String
-    var position: String
-}
-
-struct Education {
-    var type: String
-    var name: String
-}
-
-struct InfoViewModelEducationItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .education
-    }
-    var sectionType: String{
-        return "Образование"
-    }
-    var educations: [Education]
-    var rowCount: Int {
-        return educations.count
-    }
-}
-
-struct InfoViewModelPresentsItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .presents
-    }
-    
-    var sectionType: String {
-        return "Подарки"
-    }
-    
-    var rowCount: Int {
-        return 1
-    }
-    
-    var presentsNumbers: String
-}
-
-struct Files {
-    var name: String
-    var numbersOfIt: String
-}
-
-struct InfoViewModelFilesItem: InfoViewModelItem {
-    var type: InfoViewModelItemType {
-        return .files
-    }
-    
-    var sectionType: String {
-        return ""
-    }
-    
-    var files: [Files]
-    var rowCount: Int {
-        return 3
-    }
-    
-}
-
 class OwnInfoTableViewController: UITableViewController {
     
     var nameUser: String = ""
@@ -183,10 +42,15 @@ class OwnInfoTableViewController: UITableViewController {
     let educationNameArray = [ ["КФУ", "МГУ", "ПТУ"],
                                ["It-лицей", "16 школа"] ]
     let presentsNumberArray = ["22 подарков", "24 подарок", "11 подарков"]
-    let moreInfoTitleArray = ["Интересные страницы", "Заметки", "Документы"]
-    let moreInfoCountArray = [["12", "43", "42"],
+    let filesInfoTitleArray = ["Интересные страницы", "Заметки", "Документы"]
+    let filesInfoCountArray = [["12", "43", "42"],
                               ["13", "49", "76"],
                               ["43", "97", "22"]]
+    let basicInfoCellHeight: CGFloat = 50
+    let contactsCellHeight: CGFloat = 40
+    let carierCellHeight: CGFloat = 80
+    let presentsCellHeight: CGFloat = 120
+    let defaultCellHeight: CGFloat = 44
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLable: UILabel!
@@ -196,6 +60,24 @@ class OwnInfoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setInfo()
+        createStatus()
+        createBasicInfo()
+        createContacts()
+        createCarier()
+        createEdicational()
+        createPresents()
+        createFiles()
+        registrateCell()
+        setupRefreshControl()
+    }
+
+    func createStatus() {
+        let status = InfoViewModelStatusItem(status: "\(statusArray[Int(arc4random_uniform(UInt32(statusArray.count)))])")
+        items.append(status)
+    }
+    
+    func setInfo() {
         nameLable.text = nameUser
         nameLable.sizeToFit()
         surnameLable.text = surnameUser
@@ -205,32 +87,28 @@ class OwnInfoTableViewController: UITableViewController {
         cityLable.sizeToFit()
         ageLable.text = ageUser
         ageLable.sizeToFit()
-        createStatus()
-        createBasicInfo()
-        createContacts()
-        createCarier()
-        createEdicational()
-        createPresents()
-        let nib1 = UINib(nibName: "StatusTableViewCell", bundle: nil)
-        tableView.register(nib1, forCellReuseIdentifier: statusCellIdentifier)
-        let nib2 = UINib(nibName: "BasicInfoTableViewCell", bundle: nil)
-        tableView.register(nib2, forCellReuseIdentifier: basicCellIdentifier)
-        let nib3 = UINib(nibName: "ContactsTableViewCell", bundle: nil)
-        tableView.register(nib3, forCellReuseIdentifier: contatsCellIdentifier)
-        let nib4 = UINib(nibName: "CarierTableViewCell", bundle: nil)
-        tableView.register(nib4, forCellReuseIdentifier: carierCellIdentifier)
-        let nib5 = UINib(nibName: "EducationTableViewCell", bundle: nil)
-        tableView.register(nib5, forCellReuseIdentifier: educationCellIdentifier)
-        let nib6 = UINib(nibName: "PresentsTableViewCell", bundle: nil)
-        tableView.register(nib6, forCellReuseIdentifier: presentsCellIdentifier)
-        let nib7 = UINib(nibName: "FilesTableViewCell", bundle: nil)
-        tableView.register(nib7, forCellReuseIdentifier: filesCellIdentifier)
-        self.refreshControl?.addTarget(self, action: #selector(OwnInfoTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.navigationItem.title = nameUser
     }
-
-    func createStatus() {
-        let status = InfoViewModelStatusItem(status: "\(statusArray[Int(arc4random_uniform(UInt32(statusArray.count)))])")
-        items.append(status)
+    
+    func registrateCell() {
+        let statusCellNib = UINib(nibName: "StatusTableViewCell", bundle: nil)
+        tableView.register(statusCellNib, forCellReuseIdentifier: statusCellIdentifier)
+        let basicInfoCellNib = UINib(nibName: "BasicInfoTableViewCell", bundle: nil)
+        tableView.register(basicInfoCellNib, forCellReuseIdentifier: basicCellIdentifier)
+        let contactsCellNib = UINib(nibName: "ContactsTableViewCell", bundle: nil)
+        tableView.register(contactsCellNib, forCellReuseIdentifier: contatsCellIdentifier)
+        let carierCellNib = UINib(nibName: "CarierTableViewCell", bundle: nil)
+        tableView.register(carierCellNib, forCellReuseIdentifier: carierCellIdentifier)
+        let educationCellNib = UINib(nibName: "EducationTableViewCell", bundle: nil)
+        tableView.register(educationCellNib, forCellReuseIdentifier: educationCellIdentifier)
+        let presentsCellNib = UINib(nibName: "PresentsTableViewCell", bundle: nil)
+        tableView.register(presentsCellNib, forCellReuseIdentifier: presentsCellIdentifier)
+        let filesCellNib = UINib(nibName: "FilesTableViewCell", bundle: nil)
+        tableView.register(filesCellNib, forCellReuseIdentifier: filesCellIdentifier)
+    }
+    
+    func setupRefreshControl() {
+        self.refreshControl?.addTarget(self, action: #selector(OwnInfoTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     }
     
     func createBasicInfo() {
@@ -273,22 +151,25 @@ class OwnInfoTableViewController: UITableViewController {
     }
     
     func createFiles() {
-        
+        var filesInformation = [Files]()
+
+        for i in 0 ..< 3 {
+            let filesInfo = Files(name: "\(filesInfoTitleArray[i])", numbersOfIt: "\(filesInfoCountArray[i][Int(arc4random_uniform(UInt32(filesInfoCountArray[i].count)))])" )
+            filesInformation.append(filesInfo)
+        }
+        items.append(InfoViewModelFilesItem(files: filesInformation))
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return items.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return items[section].rowCount
     }
     
@@ -303,8 +184,8 @@ class OwnInfoTableViewController: UITableViewController {
             
         case .basicInfo:
             let cell = tableView.dequeueReusableCell(withIdentifier: basicCellIdentifier, for: indexPath) as! BasicInfoTableViewCell
-            let basicInfoItem = item as! InfoViewModelBasicInfoItem
-            cell.prepateCell(with: basicInfoItem.basicInfo[indexPath.row])
+            let basicInfoItemModel = item as! InfoViewModelBasicInfoItem
+            cell.prepateCell(with: basicInfoItemModel.basicInfo[indexPath.row])
             return cell
             
         case .contacts:
@@ -328,11 +209,11 @@ class OwnInfoTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: presentsCellIdentifier, for: indexPath) as! PresentsTableViewCell
             cell.prepareCell(with: item as! InfoViewModelPresentsItem)
             return cell
-//        case .files:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: filesCellIdentifier, for: indexPath) as! FilesTableViewCell
-//            let fileInfoItem = item as! InfoViewModelFilesItem
-//            cell.prepareCell(with: fileInfoItem.files[indexPath.row])
-//            return cell
+        case .files:
+            let cell = tableView.dequeueReusableCell(withIdentifier: filesCellIdentifier, for: indexPath) as! FilesTableViewCell
+            let fileInfoItem = item as! InfoViewModelFilesItem
+            cell.prepareCell(with: fileInfoItem.files[indexPath.row])
+            return cell
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: statusCellIdentifier, for: indexPath) as! StatusTableViewCell
@@ -344,22 +225,24 @@ class OwnInfoTableViewController: UITableViewController {
         let item = items[indexPath.section]
         switch item.type {
         case .basicInfo:
-            return 50
+            return basicInfoCellHeight
         
         case .contacts:
-            return 40
+            return contactsCellHeight
             
         case .carier:
-            return 80
+            return carierCellHeight
         
         case .presents:
-            return 120
+            return presentsCellHeight
             
         default:
-            return 44
+            return defaultCellHeight
         }
     }
     
+    
+ 
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         items.removeAll()
         createStatus()
@@ -368,60 +251,10 @@ class OwnInfoTableViewController: UITableViewController {
         createCarier()
         createEdicational()
         createPresents()
+        createFiles()
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
     
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell =
-//        return cell
-//    }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -19,27 +19,22 @@ class NewViewController: UIViewController {
     @IBOutlet weak var infoScrollView: UIScrollView!
     
     var user: User!
-    let barNavigationBackGroundImage = #imageLiteral(resourceName: "bar-navigation-background-image")
     let years = " years"
-    let sidebarImage = #imageLiteral(resourceName: "icon-menu")
-    let pointsImage = #imageLiteral(resourceName: "icon-points")
     let borderWidth: CGFloat = 1
     let borderColour = UIColor.init(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
     let buttonWidth = 35
     let buttonHeight = 35
+    let followersSegueIdentifier = "followersIdentifier"
+    let ownInfoSegueIdentifier = "ownInfoIdentifier"
+    let navigationBarColor = UIColor.init(red: 89/255.0, green: 125/255.0, blue: 163/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         changeBackgroundNavagation()
         user = createUser()
         setInfo(for: user)
+        setNavigationBarColorAndFont()
         roundImage(for: avatarImageView)
-        //setupNavigationBarItems()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func changeBackgroundNavagation() {
@@ -64,20 +59,6 @@ class NewViewController: UIViewController {
         view.layer.borderColor = borderColour
     }
     
-    func setupNavigationBarItems() {
-        let sidebarButton = UIButton(type: .system)
-        sidebarButton.setImage(sidebarImage, for: .normal)
-        sidebarButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 10)
-        sidebarButton.contentMode = .scaleAspectFit
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: sidebarButton)
-        
-        let pointsButton = UIButton(type: .system)
-        pointsButton.setImage(pointsImage, for: .normal)
-        pointsButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
-        pointsButton.contentMode = .scaleAspectFit
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pointsButton)
-    }
-    
     func setInfo(for user: User) {
         avatarImageView.image = user.avatar
         nameNavigationItem.title = user.name
@@ -91,12 +72,17 @@ class NewViewController: UIViewController {
         cityLabel.sizeToFit()
     }
     
+    func setNavigationBarColorAndFont(){
+        self.navigationController?.navigationBar.barTintColor = navigationBarColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "followersIdentifier" {
+        if segue.identifier == followersSegueIdentifier {
             let followersVC = segue.destination as! FollowersTableViewController
             followersVC.followers = user.followers
         }
-        if segue.identifier == "ownInfoIdentifier" {
+        if segue.identifier == ownInfoSegueIdentifier {
             let ownInfoVC = segue.destination as! OwnInfoTableViewController
             ownInfoVC.nameUser = user.name
             ownInfoVC.surnameUser = user.surname
@@ -105,15 +91,5 @@ class NewViewController: UIViewController {
             ownInfoVC.cityUser = user.city
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
